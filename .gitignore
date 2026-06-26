@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Heavy source archive (kept on disk, not published)
+2007 website/
+2015_18 Website/
+2019_Website/
+Images file_edited/
+Videos for new website/
+photos for new website/
+Promo/
+Misc Writing/
+Poetry/
+Press/
+Residencies/
+Teaching Frameworks/
+Theater/
+Theory/
+
+# Loose source media & notes (not part of the site)
+*.rtf
+*.mov
+*.webarchive
+*.docx
+Playways Map.png
+
+# Added sources (2026-06-22)
+Nicole's Play Wheel_web work by Rebecca/
+Twitter_My Posters/
