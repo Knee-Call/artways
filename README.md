@@ -2,7 +2,9 @@
 
 The website for **Artways Playways**, Nicole Sumner's play-based, multi-arts education consulting practice — professional development *Playshops* for educators, youth leaders, organizations and artists.
 
-**Live:** https://pianonik.github.io/nicole-sumner2/ — hosted on GitHub Pages from the `main` branch (root). Any push to `main` auto-publishes; a `.nojekyll` file makes Pages serve the files as-is. Repo: `pianonik/nicole-sumner2`.
+**Live:** https://knee-call.github.io/artways/ — hosted on GitHub Pages from the `main` branch (root) of **`Knee-Call/artways`** (Nicole's own account; this is the canonical deploy target — `git push origin main` here). Any push to `main` auto-publishes; a `.nojekyll` file makes Pages serve the files as-is.
+
+> Older URL `https://pianonik.github.io/nicole-sumner2/` (repo `pianonik/nicole-sumner2`) is **frozen** — it lives on an account we don't control and can no longer be updated. Do not point new links there.
 
 ## Stack
 
