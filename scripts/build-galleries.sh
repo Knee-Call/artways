@@ -27,11 +27,11 @@ cat <<NAV
       <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="why-play.html">Why Play?</a></li>
         <li><a href="playshops.html">Playshops</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="gallery.html"$([ "${1:-}" = gallery ] && echo ' class="active"')>Gallery</a></li>
-        <li><a href="about.html">About</a></li>
         <li><a href="mailto:sumnernicole@gmail.com" class="nav-cta">Book a Playshop</a></li>
       </ul>
     </div>
@@ -113,12 +113,17 @@ echo "$MANIFEST" | while IFS='|' read -r slug title dirs; do
   mkdir -p "$OUT/$slug"
   n=0
   grid=""
+  seen=""   # md5s already used in this gallery, to skip content-identical dupes
   IFS=';' read -ra DARR <<< "$dirs"
   for d in "${DARR[@]}"; do
     [ -d "$d" ] || continue
     while IFS= read -r f; do
       base=$(basename "$f")
       echo "$base" | grep -qiE "$SKIP_RE" && continue
+      # skip the same photo saved twice (source files left untouched)
+      hash=$(md5 -q "$f")
+      case " $seen " in *" $hash "*) echo "  skip duplicate: $base"; continue ;; esac
+      seen="$seen $hash"
       n=$((n+1)); nn=$(printf "%02d" "$n")
       full="$OUT/$slug/$slug-$nn.jpg"; thumb="$OUT/$slug/$slug-$nn-thumb.jpg"
       sips -s format jpeg -s formatOptions 72 -Z 1600 "$f" --out "$full" >/dev/null 2>&1
